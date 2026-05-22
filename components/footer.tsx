@@ -91,7 +91,18 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-zinc-100 pt-8 text-xs text-zinc-400 md:flex-row">
           <p>&copy; {new Date().getFullYear()} Karios, Inc. All rights reserved.</p>
-          <p>Built with precision in Chicago.</p>
+          <p>
+            Built by{" "}
+            <a
+              href="https://lazarpetkovic.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-zinc-600"
+            >
+              Lazar Petkovic
+            </a>
+            .
+          </p>
         </div>
       </div>
     </footer>
