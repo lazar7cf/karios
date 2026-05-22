@@ -83,14 +83,14 @@ export default function Pricing() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, type: "spring" as const, stiffness: 100, damping: 20 }}
               className={cn(
-                "relative flex flex-col rounded-[2.5rem] border p-8 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.04)]",
+                "relative flex flex-col rounded-[2.5rem] border p-8 shadow-[0_8px_24px_-12px_rgba(24,24,27,0.04)]",
                 plan.popular
-                  ? "border-emerald-200/50 bg-emerald-50/30"
+                  ? "border-emerald-300/60 bg-emerald-50/40 shadow-[0_8px_32px_-12px_rgba(16,185,129,0.12)]"
                   : "border-zinc-200/50 bg-white"
               )}
             >
               {plan.popular && (
-                <span className="absolute -top-3 left-8 inline-flex items-center rounded-full border border-emerald-200/50 bg-white px-4 py-1 text-xs font-semibold text-emerald-700 shadow-sm">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-emerald-600 px-5 py-1.5 text-xs font-semibold text-white shadow-[0_4px_12px_-4px_rgba(16,185,129,0.3)]">
                   Most popular
                 </span>
               )}

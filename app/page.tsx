@@ -13,13 +13,13 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-dvh">
+      <main id="main-content" className="min-h-dvh">
         <Hero />
-        <Stats />
         <BentoGrid />
+        <Stats />
         <Integrations />
-        <Testimonials />
         <Pricing />
+        <Testimonials />
         <FAQ />
         <Contact />
       </main>

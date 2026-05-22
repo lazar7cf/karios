@@ -2,7 +2,8 @@
 
 import { useState, useEffect, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "@/lib/icons";
+import { cn } from "@/lib/utils";
+import { ArrowRight, Check, AlertCircle } from "@/lib/icons";
 
 const placeholders = [
   "your@company.com",
@@ -12,6 +13,7 @@ const placeholders = [
 
 export default function Contact() {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -45,7 +47,15 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    setError("");
+    if (!email) {
+      setError("Email address is required");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Enter a valid email address");
+      return;
+    }
     setStatus("submitting");
     await new Promise((r) => setTimeout(r, 1200));
     setStatus("success");
@@ -56,7 +66,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="relative mx-auto max-w-2xl overflow-hidden rounded-[2.5rem] border border-zinc-200/50 bg-white p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)] md:p-12">
+        <div className="relative mx-auto max-w-2xl overflow-hidden rounded-[2.5rem] border border-zinc-200/50 bg-white p-8 shadow-[0_20px_60px_-15px_rgba(24,24,27,0.06)] md:p-12">
           <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
             <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-emerald-50/60 blur-3xl" />
             <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-zinc-50 blur-3xl" />
@@ -77,7 +87,7 @@ export default function Contact() {
             </h2>
             <p className="mt-3 text-base leading-relaxed text-zinc-500 max-w-[65ch]">
               Join 2,400+ engineering teams already using Karios. No onboarding
-              calls, no sales demos — just a terminal and a token.
+              calls, no sales demos - just a terminal and a token.
             </p>
           </motion.div>
 
@@ -91,12 +101,27 @@ export default function Contact() {
           >
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="relative flex-1 w-full">
+                {error && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-rose-500"
+                  >
+                    <AlertCircle size={12} />
+                    {error}
+                  </motion.p>
+                )}
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => { setEmail(e.target.value); setError(""); }}
                   placeholder={currentPlaceholder || "your@company.com"}
-                  className="w-full rounded-full border border-zinc-200 bg-zinc-50/50 px-5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-zinc-300 focus:bg-white"
+                  className={cn(
+                    "w-full rounded-full border px-5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:bg-white",
+                    error
+                      ? "border-rose-300 bg-rose-50/50 focus:border-rose-400"
+                      : "border-zinc-200 bg-zinc-50/50 focus:border-zinc-300"
+                  )}
                   disabled={status === "submitting" || status === "success"}
                   required
                 />

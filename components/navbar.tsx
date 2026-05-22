@@ -13,8 +13,8 @@ const navLinks = [
 export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-[1400px] px-6">
-        <nav className="mt-4 flex items-center justify-between rounded-[2rem] border border-zinc-200/50 bg-white/70 px-6 py-3 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.08)] backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-6">
+        <nav className="mt-4 flex items-center justify-between rounded-[2rem] border border-zinc-200/50 bg-white/70 px-6 py-3 shadow-[0_8px_32px_-12px_rgba(24,24,27,0.08)] backdrop-blur-xl">
           <a href="/" className="text-lg font-semibold tracking-tight text-zinc-900">
             Karios
           </a>

@@ -60,7 +60,7 @@ export default function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.1, type: "spring" as const, stiffness: 100, damping: 20 }}
-                className="rounded-[2rem] border border-zinc-200/50 bg-white p-6 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.04)]"
+                className="rounded-[2rem] border border-zinc-200/50 bg-white p-6 shadow-[0_8px_24px_-12px_rgba(24,24,27,0.04)]"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50">
                   <Icon className="h-5 w-5 text-emerald-600" />

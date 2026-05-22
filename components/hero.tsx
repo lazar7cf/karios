@@ -37,7 +37,7 @@ function FloatingMetric({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, type: "spring" as const, stiffness: 80, damping: 18 }}
-      className={cn("absolute rounded-2xl border border-zinc-200/50 bg-white/80 px-4 py-3 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)] backdrop-blur-md", className)}
+      className={cn("absolute rounded-2xl border border-zinc-200/50 bg-white/80 px-4 py-3 shadow-[0_8px_24px_-8px_rgba(24,24,27,0.06)] backdrop-blur-md", className)}
     >
       <p className="text-xs font-medium text-zinc-500">{label}</p>
       <p className="text-lg font-semibold tracking-tight text-zinc-900">{value}</p>
@@ -80,7 +80,7 @@ export default function Hero() {
               className="mt-6 text-base leading-relaxed text-zinc-500 max-w-[65ch]"
             >
               Karios monitors your workflows in real time, surfaces anomalies
-              before they compound, and gives your team the context to act — not
+              before they compound, and gives your team the context to act - not
               just the numbers.
             </motion.p>
 
@@ -134,36 +134,76 @@ export default function Hero() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="relative mx-auto h-[480px] w-full max-w-[520px]">
-              <div className="absolute inset-0 rounded-[2.5rem] border border-zinc-200/50 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)]">
+            <div className="relative mx-auto h-[520px] w-full max-w-[560px]">
+              <div className="absolute inset-0 rounded-[2.5rem] border border-zinc-200/50 bg-white shadow-[0_20px_60px_-15px_rgba(24,24,27,0.06)]">
                 <div className="flex items-center gap-2 border-b border-zinc-100 px-6 py-4">
-                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-200" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-200" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-200" />
-                  <div className="ml-4 h-4 flex-1 rounded-md bg-zinc-100" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-300" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-300" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-300" />
+                  <div className="ml-6 flex items-center gap-5">
+                    <div className="h-2 w-14 rounded-full bg-emerald-500" />
+                    <div className="h-2 w-12 rounded-full bg-zinc-200" />
+                    <div className="h-2 w-10 rounded-full bg-zinc-200" />
+                  </div>
+                  <div className="ml-auto h-6 w-6 rounded-full bg-zinc-100" />
                 </div>
-                <div className="grid grid-cols-5 gap-3 p-6">
-                  <div className="col-span-3 space-y-3">
-                    <div className="h-3 w-24 rounded bg-zinc-100" />
-                    <div className="space-y-2">
-                      {[90, 65, 45, 80, 30].map((w, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div className="h-6 w-6 rounded-full bg-zinc-100" />
-                          <div className="h-2.5 rounded bg-zinc-100" style={{ width: `${w}%` }} />
+
+                <div className="p-6 space-y-6">
+                  <div className="grid grid-cols-3 gap-3">
+                    {[
+                      { label: "Uptime", value: "99.97%", dot: "bg-emerald-500" },
+                      { label: "Avg. Latency", value: "42ms", dot: "bg-emerald-500" },
+                      { label: "Active", value: "847", dot: "bg-zinc-500" },
+                    ].map((stat, i) => (
+                      <div key={i} className="rounded-xl border border-zinc-100 bg-zinc-50/50 p-3.5">
+                        <div className="h-2 w-12 rounded bg-zinc-200" />
+                        <div className="mt-2 h-5 w-16 rounded bg-zinc-200" />
+                        <div className="mt-1.5 flex items-center gap-1.5">
+                          <div className={`h-1.5 w-1.5 rounded-full ${stat.dot}`} />
+                          <div className="h-1.5 w-10 rounded bg-zinc-200" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="h-3 w-28 rounded bg-zinc-100" />
+                      <div className="h-2 w-12 rounded bg-zinc-100" />
+                    </div>
+                    <div className="flex items-end gap-1.5 h-28">
+                      {[35, 55, 40, 70, 50, 85, 65, 45, 75, 60, 90, 50].map((h, i) => (
+                        <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                          <div
+                            className="w-full rounded-t-lg bg-gradient-to-t from-emerald-200 to-emerald-100"
+                            style={{ height: `${h}%` }}
+                          />
                         </div>
                       ))}
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="h-2 w-8 rounded bg-zinc-100" />
+                      <div className="h-2 w-8 rounded bg-zinc-100" />
+                      <div className="h-2 w-8 rounded bg-zinc-100" />
+                      <div className="h-2 w-8 rounded bg-zinc-100" />
+                      <div className="h-2 w-8 rounded bg-zinc-100" />
+                      <div className="h-2 w-8 rounded bg-zinc-100" />
                     </div>
                   </div>
-                  <div className="col-span-2 space-y-3">
-                    <div className="h-3 w-16 rounded bg-zinc-100" />
-                    <div className="space-y-2 rounded-lg border border-zinc-100 p-3">
-                      {[70, 40, 90].map((w, i) => (
-                        <div key={i} className="space-y-1">
-                          <div className="h-2 w-12 rounded bg-zinc-100" />
-                          <div className="h-1.5 rounded bg-emerald-100" style={{ width: `${w}%` }} />
-                        </div>
-                      ))}
-                    </div>
+
+                  <div className="space-y-2.5">
+                    <div className="h-3 w-24 rounded bg-zinc-100" />
+                    {[
+                      { dot: "bg-emerald-500", w1: 55, w2: 35 },
+                      { dot: "bg-amber-500", w1: 45, w2: 25 },
+                      { dot: "bg-zinc-300", w1: 50, w2: 30 },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className={`h-2 w-2 rounded-full ${item.dot}`} />
+                        <div className="h-2 flex-1 rounded bg-zinc-100" style={{ width: `${item.w1}%` }} />
+                        <div className="h-2 w-12 rounded bg-zinc-100" />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -178,13 +218,13 @@ export default function Hero() {
                 label="Active Monitors"
                 value="847"
                 delay={1.0}
-                className="hidden xl:block -left-8 bottom-24"
+                className="hidden xl:block -left-8 bottom-28"
               />
               <FloatingMetric
                 label="Anomalies Caught"
                 value="13"
                 delay={1.2}
-                className="hidden xl:block -right-4 bottom-16"
+                className="hidden xl:block -right-4 bottom-20"
               />
             </div>
           </div>

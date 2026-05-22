@@ -45,7 +45,7 @@ export default function Integrations() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.05, type: "spring" as const, stiffness: 100, damping: 20 }}
-              className="group flex items-center gap-4 rounded-2xl border border-zinc-200/50 bg-white px-5 py-4 shadow-[0_2px_8px_-4px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]"
+              className="group flex items-center gap-4 rounded-2xl border border-zinc-200/50 bg-white px-5 py-4 shadow-[0_2px_8px_-4px_rgba(24,24,27,0.04)] transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(24,24,27,0.08)]"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-zinc-200 bg-white text-sm font-semibold text-zinc-700">
                 {integration.name.charAt(0)}

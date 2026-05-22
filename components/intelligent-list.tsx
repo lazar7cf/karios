@@ -7,7 +7,7 @@ import { CheckCircle, Clock, AlertCircle } from "@/lib/icons";
 
 const initialItems = [
   { id: "1", label: "Deploy v2.4.1 to staging", status: "active", priority: 3 },
-  { id: "2", label: "Review PR #847 — auth flow", status: "pending", priority: 1 },
+  { id: "2", label: "Review PR #847 - auth flow", status: "pending", priority: 1 },
   { id: "3", label: "Run E2E regression suite", status: "active", priority: 4 },
   { id: "4", label: "Update API rate limits", status: "pending", priority: 2 },
   { id: "5", label: "Audit dependency tree", status: "pending", priority: 5 },

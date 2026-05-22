@@ -1,9 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { ChevronDown } from "@/lib/icons";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -12,11 +9,11 @@ const faqs = [
   },
   {
     q: "What infrastructure does Karios support?",
-    a: "Karios works with any HTTP-based service, monitor, or API. We have native integrations with AWS, Vercel, Datadog, PagerDuty, GitHub, and 50+ other platforms. Our CLI also works with custom and self-hosted infrastructure.",
+    a: "Karios works with any HTTP-based service, monitor, or API. We have native integrations with AWS, Vercel, Datadog, PagerDuty, GitHub, and 50+ other platforms.",
   },
   {
     q: "Can I try Karios before committing?",
-    a: "Yes. Every plan comes with a 14-day free trial. No credit card is required. You get full access to all features — including unlimited monitors, natural language query, and the auto-sorting incident queue.",
+    a: "Yes. Every plan comes with a 14-day free trial. No credit card is required. You get full access to all features - including unlimited monitors, natural language query, and the auto-sorting incident queue.",
   },
   {
     q: "How does pricing work for larger teams?",
@@ -24,17 +21,15 @@ const faqs = [
   },
   {
     q: "What kind of support do you offer?",
-    a: "Starter and Pro plans include email and Slack-based support with a 4-hour response time during business hours. Enterprise customers get a dedicated support engineer with a 30-minute SLA and 24/7 coverage.",
+    a: "Starter and Pro plans include email and Slack-based support with a 4-hour response time. Enterprise customers get a dedicated support engineer with a 30-minute SLA and 24/7 coverage.",
   },
   {
     q: "Is my data secure with Karios?",
-    a: "Yes. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We offer SSO, RBAC, audit logs, and SOC 2 Type II compliance. Enterprise customers can also request an on-premise deployment.",
+    a: "Yes. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We offer SSO, RBAC, audit logs, and SOC 2 Type II compliance.",
   },
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <section id="faq" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -54,55 +49,24 @@ export default function FAQ() {
           </h2>
         </motion.div>
 
-        <div className="max-w-3xl text-left">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.05, type: "spring" as const, stiffness: 100, damping: 20 }}
-                className={cn(
-                  "border-b border-zinc-100 last:border-b-0",
-                  i === 0 && "border-t"
-                )}
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-0 py-5 text-left transition-colors hover:text-emerald-600"
-                >
-                  <span className="text-base font-medium text-zinc-800">
-                    {faq.q}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ type: "spring" as const, stiffness: 200, damping: 20 }}
-                    className="shrink-0 text-zinc-400"
-                  >
-                    <ChevronDown size={18} />
-                  </motion.span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ type: "spring" as const, stiffness: 200, damping: 25 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-5 text-sm leading-relaxed text-zinc-500 max-w-[60ch]">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+        <div className="grid gap-4 md:grid-cols-2">
+          {faqs.map((faq, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.05, type: "spring" as const, stiffness: 100, damping: 20 }}
+              className="rounded-2xl border border-zinc-200/50 bg-white p-6"
+            >
+              <h3 className="text-sm font-semibold text-zinc-900 leading-snug">
+                {faq.q}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+                {faq.a}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

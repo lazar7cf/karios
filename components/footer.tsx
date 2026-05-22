@@ -6,26 +6,22 @@ const footerLinks = [
     links: [
       { name: "Features", href: "#features" },
       { name: "Pricing", href: "#pricing" },
-      { name: "Changelog", href: "#" },
-      { name: "Documentation", href: "#" },
+      { name: "API", href: "#" },
     ],
   },
   {
     label: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
       { name: "Contact", href: "#contact" },
+      { name: "Blog", href: "#" },
     ],
   },
   {
     label: "Legal",
     links: [
-      { name: "Privacy", href: "#" },
-      { name: "Terms", href: "#" },
-      { name: "Security", href: "#" },
-      { name: "Cookies", href: "#" },
+      { name: "Privacy Policy", href: "#" },
+      { name: "Terms of Service", href: "#" },
+      { name: "Cookie Policy", href: "#" },
     ],
   },
 ];

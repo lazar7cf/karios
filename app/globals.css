@@ -54,4 +54,27 @@
     display: block;
     max-width: 100%;
   }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-emerald-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--color-emerald-500);
+    outline-offset: 2px;
+  }
 }
+
+

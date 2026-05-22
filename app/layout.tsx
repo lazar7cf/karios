@@ -15,13 +15,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Karios — Real-Time Intelligence",
+  title: "Karios - Real-Time Intelligence",
   description:
     "Monitor, analyze, and optimize your workflows with Karios. Real-time insights powered by perpetual intelligence.",
   openGraph: {
-    title: "Karios — Real-Time Intelligence",
+    title: "Karios - Real-Time Intelligence",
     description:
       "Monitor, analyze, and optimize your workflows with Karios.",
+    type: "website",
+    siteName: "Karios",
+  },
+  icons: {
+    icon: "/favicon.svg",
   },
 };
 
@@ -30,7 +35,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-zinc-900 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

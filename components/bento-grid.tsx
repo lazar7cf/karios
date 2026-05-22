@@ -44,7 +44,7 @@ export default function BentoGrid() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-500 max-w-[65ch]">
             Real-time monitoring, intelligent alerting, and collaborative
-            investigation tools — fused into a single surface.
+            investigation tools - fused into a single surface.
           </p>
         </motion.div>
 
@@ -107,7 +107,7 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col rounded-[2.5rem] border border-zinc-200/50 bg-white p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-shadow hover:shadow-[0_24px_48px_-15px_rgba(0,0,0,0.08)] h-full">
+    <div className="flex flex-col rounded-[2.5rem] border border-zinc-200/50 bg-white p-8 shadow-[0_20px_40px_-15px_rgba(24,24,27,0.05)] transition-shadow hover:shadow-[0_24px_48px_-15px_rgba(24,24,27,0.08)] h-full">
       <div className="mb-5">{children}</div>
       <div className="mt-auto">
         <h3 className="text-sm font-semibold tracking-tight text-zinc-900">

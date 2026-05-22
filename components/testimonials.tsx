@@ -26,7 +26,7 @@ const testimonials = [
     avatar: "https://picsum.photos/seed/linhsu/120/120",
   },
   {
-    quote: "The natural language query feature is dangerous — in the best way. Our non-technical stakeholders actually use it.",
+    quote: "The natural language query feature is dangerous - in the best way. Our non-technical stakeholders actually use it.",
     name: "Priya Nair",
     role: "VP of Infrastructure, Atlas Pay",
     rating: 5,
@@ -62,7 +62,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, type: "spring" as const, stiffness: 100, damping: 20 }}
-              className="flex flex-col rounded-[2rem] border border-zinc-200/50 bg-white p-6 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.04)]"
+              className="flex flex-col rounded-[2rem] border border-zinc-200/50 bg-white p-6 shadow-[0_8px_24px_-12px_rgba(24,24,27,0.04)]"
             >
               <div className="mb-4 flex gap-0.5">
                 {Array.from({ length: t.rating }).map((_, r) => (

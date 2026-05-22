@@ -28,7 +28,7 @@ const changeColor = {
 function MetricCard({ label, value, change, pct }: typeof metrics[number]) {
   const Icon = changeIcon[change as keyof typeof changeIcon];
   return (
-    <div className="flex shrink-0 items-center gap-4 rounded-2xl border border-zinc-200/50 bg-white px-5 py-3 shadow-[0_2px_8px_-4px_rgba(0,0,0,0.04)]">
+    <div className="flex shrink-0 items-center gap-4 rounded-2xl border border-zinc-200/50 bg-white px-5 py-3 shadow-[0_2px_8px_-4px_rgba(24,24,27,0.04)]">
       <div>
         <p className="whitespace-nowrap text-xs font-medium text-zinc-400">{label}</p>
         <p className="whitespace-nowrap text-lg font-semibold tracking-tight text-zinc-900">
